@@ -3,7 +3,7 @@
 
 <div>
     <form action="{% url 'edit_book' pk=book.pk %}" method="POST">
-        {% csrf_token} {{ form.as_p }}
+        {% csrf_token %} {{ form.as_p }}
     <div>
         Last updated {{ book.modified_at }}
     </div>

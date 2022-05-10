@@ -18,8 +18,8 @@
         Last updated {{ book.modified_at }}
     </div>
     <div>
-        <a href="{% url 'edit_book' pk=book.pk}">Edit This Book</a>
-        <a href="{% url 'delete_book' pk=book.pk}">Delete This Book</a>
+        <a href="{% url 'edit_book' pk=book.pk %}">Edit This Book</a>
+        <a href="{% url 'delete_book' pk=book.pk %}">Delete This Book</a>
     </div>
 </div>
 {% endblock %}

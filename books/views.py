@@ -10,7 +10,7 @@ def list_books(request):
 
 def book_details(request, pk):
     book = get_object_or_404(Book, pk=pk)
-    return render(request, "book/book_details.html", {'book': book})
+    return render(request, "books/book_details.html", {'book': book})
 
 
 def add_book(request):
