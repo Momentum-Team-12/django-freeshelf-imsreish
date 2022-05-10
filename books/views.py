@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Book, User
+from .models import Book, User, Category
 from .forms import BookForm
 
 # Create your views here.
@@ -48,3 +48,10 @@ def delete_book(request, pk):
         return redirect(to='list_books')
 
     return render(request, "books/delete_book.html", {"book": book})
+
+
+def books_by_category(request, slug):
+    category = Category.objects.get(slug=slug)
+    books = Book.objects.filter(category=category)
+
+    return render(request, "books/category.html", {"books": books, "category": category})

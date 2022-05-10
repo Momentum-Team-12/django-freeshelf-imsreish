@@ -8,4 +8,5 @@ class BookForm(forms.ModelForm):
         fields = [
             'title', 
             'author',
+            'category',
         ]
