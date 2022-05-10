@@ -1,0 +1,8 @@
+Goal 1:
+    - create book model
+        - title, author, description
+            - url (detail)
+    - create homepage to show list of all books (URL, template, view)
+        - book urls should be unique
+    - admins can add, edit & delete books
+    - books should be displayed with most recent entries at the top
