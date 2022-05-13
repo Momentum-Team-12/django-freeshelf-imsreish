@@ -9,6 +9,11 @@
         {{ book.title }}
     </div>
     <div>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Favorite</button>
+    </div>
+    <div>
         {{ book.author }}
     </div>
     <div>

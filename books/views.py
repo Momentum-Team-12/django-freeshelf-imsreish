@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Book, User, Category
-from .forms import BookForm
+from .forms import BookForm, FavoriteForm
 
 # Create your views here.
 def list_books(request):
@@ -10,12 +10,13 @@ def list_books(request):
 
 def book_details(request, pk):
     book = get_object_or_404(Book, pk=pk)
-    return render(request, "books/book_details.html", {'book': book})
+    form = BookForm()
+    return render(request, "books/book_details.html", {'book': book, 'form': form, })
 
 
 def add_book(request):
     if request.method == 'GET':
-        form = BookForm()
+        form = FavoriteForm()
     else:
         form = BookForm(data=request.POST)
         if form.is_valid():
@@ -23,6 +24,16 @@ def add_book(request):
             return redirect(to='list_books')
 
     return render(request, "books/add_book.html", {'form': form})
+
+
+def add_favorite(request):
+    if request.method == 'POST':
+        form = FavoriteForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(to='book_details')
+
+    # return render(request, "books/book_details.html", {'form': form})
 
 
 def edit_book(request, pk):

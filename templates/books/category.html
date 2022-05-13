@@ -15,6 +15,16 @@
     <p>
         {{ book.description }}
     </p>
+    <div>
+        Added {{ book.created_at }}
+    </div>
+    <div>
+        Last updated {{ book.modified_at }}
+    </div>
+    <div>
+        <a href="{% url 'edit_book' pk=book.pk %}">Edit This Book</a>
+        <a href="{% url 'delete_book' pk=book.pk %}">Delete This Book</a>
+    </div>
     {% endfor %}
 </div>
 
